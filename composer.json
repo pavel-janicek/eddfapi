@@ -1,0 +1,6 @@
+{
+    "require": {
+        "fapi-cz/fapi-client": "^0.1.5",
+        "yahnis-elsts/plugin-update-checker": "^4.9"
+    }
+}

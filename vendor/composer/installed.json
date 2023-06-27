@@ -1,0 +1,502 @@
+[
+    {
+        "name": "composer/ca-bundle",
+        "version": "1.2.6",
+        "version_normalized": "1.2.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/ca-bundle.git",
+            "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/ca-bundle/zipball/47fe531de31fca4a1b997f87308e7d7804348f7e",
+            "reference": "47fe531de31fca4a1b997f87308e7d7804348f7e",
+            "shasum": ""
+        },
+        "require": {
+            "ext-openssl": "*",
+            "ext-pcre": "*",
+            "php": "^5.3.2 || ^7.0 || ^8.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "^4.8.35 || ^5.7 || 6.5 - 8",
+            "psr/log": "^1.0",
+            "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0"
+        },
+        "time": "2020-01-13T10:02:55+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Composer\\CaBundle\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jordi Boggiano",
+                "email": "j.boggiano@seld.be",
+                "homepage": "http://seld.be"
+            }
+        ],
+        "description": "Lets you find a path to the system CA bundle, and includes a fallback to the Mozilla CA bundle.",
+        "keywords": [
+            "cabundle",
+            "cacert",
+            "certificate",
+            "ssl",
+            "tls"
+        ]
+    },
+    {
+        "name": "fapi-cz/fapi-client",
+        "version": "v0.1.5",
+        "version_normalized": "0.1.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fapi-cz/fapi-client.git",
+            "reference": "5b5a673c31cfbc319e623b42916d5b32c212e2ba"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fapi-cz/fapi-client/zipball/5b5a673c31cfbc319e623b42916d5b32c212e2ba",
+            "reference": "5b5a673c31cfbc319e623b42916d5b32c212e2ba",
+            "shasum": ""
+        },
+        "require": {
+            "fapi-cz/http-client": "^0.1",
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "guzzlehttp/guzzle": "^6.3",
+            "nette/di": "^2.4",
+            "nette/tester": "^2.1",
+            "nette/utils": "^2.5",
+            "phpstan/phpstan": "^0.10.5",
+            "phpstan/phpstan-nette": "^0.10.1",
+            "slevomat/coding-standard": "^4.8",
+            "tracy/tracy": "^2.5"
+        },
+        "suggest": {
+            "nette/di": "to use class FapiClientExtension"
+        },
+        "time": "2020-03-26T07:52:23+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Fapi\\FapiClient\\": "src/"
+            },
+            "classmap": [
+                "src/Fapi/FapiClient/exceptions.php",
+                "src/Fapi/FapiClient/Rest/exceptions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jan-Sebastian Fabík",
+                "email": "honza@fabik.org"
+            },
+            {
+                "name": "Jiří Slischka",
+                "email": "slischkaj@gmail.com"
+            }
+        ],
+        "description": "Library for accessing FAPI API."
+    },
+    {
+        "name": "fapi-cz/http-client",
+        "version": "v0.1.0",
+        "version_normalized": "0.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fapi-cz/http-client.git",
+            "reference": "4a055fa350d164d5e5b63a8cd431aed60e848cc7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fapi-cz/http-client/zipball/4a055fa350d164d5e5b63a8cd431aed60e848cc7",
+            "reference": "4a055fa350d164d5e5b63a8cd431aed60e848cc7",
+            "shasum": ""
+        },
+        "require": {
+            "composer/ca-bundle": "^1.1",
+            "guzzlehttp/psr7": "^1.4",
+            "php": "^7.0",
+            "psr/http-client": "^1.0",
+            "psr/http-message": "^1.0",
+            "psr/log": "^1.0"
+        },
+        "require-dev": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "guzzlehttp/guzzle": "^6.0",
+            "nette/di": "^2.4",
+            "nette/tester": "^2.1",
+            "phpstan/phpstan": "^0.10.5",
+            "phpstan/phpstan-nette": "^0.10.1",
+            "react/child-process": "^0.5.2",
+            "react/http": "^0.8.3",
+            "slevomat/coding-standard": "^4.8",
+            "tracy/tracy": "^2.5"
+        },
+        "suggest": {
+            "ext-curl": "to use class CurlHttpClient",
+            "guzzlehttp/guzzle": "to use class GuzzleHttpClient",
+            "nette/di": "to use class HttpClientExtension",
+            "nette/tester": "to use class CapturingHttpClient",
+            "tracy/tracy": "to use class LoggingHttpClient"
+        },
+        "time": "2018-11-17T10:19:18+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jan-Sebastian Fabík",
+                "email": "honza@fabik.org"
+            },
+            {
+                "name": "Jiří Slischka",
+                "email": "slischkaj@gmail.com"
+            }
+        ],
+        "description": "Library for making HTTP requests."
+    },
+    {
+        "name": "guzzlehttp/psr7",
+        "version": "1.6.1",
+        "version_normalized": "1.6.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/guzzle/psr7.git",
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
+            "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0",
+            "psr/http-message": "~1.0",
+            "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+        },
+        "provide": {
+            "psr/http-message-implementation": "1.0"
+        },
+        "require-dev": {
+            "ext-zlib": "*",
+            "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.8"
+        },
+        "suggest": {
+            "zendframework/zend-httphandlerrunner": "Emit PSR-7 responses"
+        },
+        "time": "2019-07-01T23:21:34+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.6-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GuzzleHttp\\Psr7\\": "src/"
+            },
+            "files": [
+                "src/functions_include.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Michael Dowling",
+                "email": "mtdowling@gmail.com",
+                "homepage": "https://github.com/mtdowling"
+            },
+            {
+                "name": "Tobias Schultze",
+                "homepage": "https://github.com/Tobion"
+            }
+        ],
+        "description": "PSR-7 message implementation that also provides common utility methods",
+        "keywords": [
+            "http",
+            "message",
+            "psr-7",
+            "request",
+            "response",
+            "stream",
+            "uri",
+            "url"
+        ]
+    },
+    {
+        "name": "psr/http-client",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-client.git",
+            "reference": "496a823ef742b632934724bf769560c2a5c7c44e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-client/zipball/496a823ef742b632934724bf769560c2a5c7c44e",
+            "reference": "496a823ef742b632934724bf769560c2a5c7c44e",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.0",
+            "psr/http-message": "^1.0"
+        },
+        "time": "2018-10-30T23:29:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Client\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP clients",
+        "homepage": "https://github.com/php-fig/http-client",
+        "keywords": [
+            "http",
+            "http-client",
+            "psr",
+            "psr-18"
+        ]
+    },
+    {
+        "name": "psr/http-message",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06T14:39:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "homepage": "https://github.com/php-fig/http-message",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "1.1.3",
+        "version_normalized": "1.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/0f73288fd15629204f9d42b7055f72dacbe811fc",
+            "reference": "0f73288fd15629204f9d42b7055f72dacbe811fc",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2020-03-23T09:12:05+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "ralouphie/getallheaders",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/ralouphie/getallheaders.git",
+            "reference": "120b605dfeb996808c31b6477290a714d356e822"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/ralouphie/getallheaders/zipball/120b605dfeb996808c31b6477290a714d356e822",
+            "reference": "120b605dfeb996808c31b6477290a714d356e822",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6"
+        },
+        "require-dev": {
+            "php-coveralls/php-coveralls": "^2.1",
+            "phpunit/phpunit": "^5 || ^6.5"
+        },
+        "time": "2019-03-08T08:55:37+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "src/getallheaders.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Ralph Khattar",
+                "email": "ralph.khattar@gmail.com"
+            }
+        ],
+        "description": "A polyfill for getallheaders."
+    },
+    {
+        "name": "yahnis-elsts/plugin-update-checker",
+        "version": "v4.9",
+        "version_normalized": "4.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
+            "reference": "28f29c940cc22754aff85a99645e3c0a51c097e8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/28f29c940cc22754aff85a99645e3c0a51c097e8",
+            "reference": "28f29c940cc22754aff85a99645e3c0a51c097e8",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2020-02-07T11:07:19+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "files": [
+                "load-v4p9.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Yahnis Elsts",
+                "email": "whiteshadow@w-shadow.com",
+                "homepage": "http://w-shadow.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "A custom update checker for WordPress plugins and themes. Useful if you can't host your plugin in the official WP repository but still want it to support automatic updates.",
+        "homepage": "https://github.com/YahnisElsts/plugin-update-checker/",
+        "keywords": [
+            "automatic updates",
+            "plugin updates",
+            "theme updates",
+            "wordpress"
+        ]
+    }
+]
