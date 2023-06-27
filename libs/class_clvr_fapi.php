@@ -507,7 +507,7 @@ if (!class_exists('Clvr_Fapi')){
     }
 
     public function listener(){
-        if (isset($_GET) && ($_GET['edd-listener'] == 'eddfapi')){
+        if (isset($_GET['edd-listener']) && ($_GET['edd-listener'] == 'eddfapi')){
             if(!$this->isInitialized()){
                 return;
             }
