@@ -3,7 +3,7 @@
 Plugin Name: Propojení FAPI a EDD
 Plugin URL: https://cleverstart.cz
 Description: Vygeneruje fakturu po zprocesování platby a pošle ji zákazníkovi na e-mail který uvedl při nákupu
-Version: 1.4.50
+Version: 1.5.51
 Author: Pavel Janíček
 Author URI: https://cleverstart.cz
 */

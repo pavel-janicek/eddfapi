@@ -12,12 +12,13 @@ if (!class_exists('Clvr_Fapi')){
         if(!$onlyPdf){
             require 'class_clvr_fapi_settings.php';
             require 'class_edd_customer_meta_wrapper.php';
+            require 'class_edd_order_meta_wrapper.php';
             $settings = new Clvr_Fapi_Settings();
-            add_filter( 'edd_payment_meta', array($this,'store_payment_meta') );
             add_action( 'edd_payment_personal_details_list', array($this,'view_order_details'), 10, 2 );
             add_filter( 'edd_purchase_form_required_fields', array($this,'purchase_form_required_fields') );
             add_action( 'edd_payment_receipt_after', array($this, 'addInvoiceToThankYou'), 10 );
             add_action( 'edd_complete_purchase', array($this, 'setInvoicePaid') );
+            add_action( 'edd_insert_payment', array($this,'maybe_create_proforma'));
             add_action( 'init', array($this,'listener'));
             remove_action('edd_purchase_form_after_cc_form','edd_checkout_tax_fields',999);
             add_filter( 'edd_require_billing_address', '__return_false', 9999 );
@@ -62,14 +63,14 @@ if (!class_exists('Clvr_Fapi')){
             return $eddvyfakturuj_fields;
         }
       
-        public function store_payment_meta($payment_meta){
+        public function store_payment_meta($payment){
             $extra_fields = $this->all_extra_fields();
             foreach ($extra_fields as $key => $extra_field){
                   if(empty($payment_meta[$extra_field])){
-                      $payment_meta[$extra_field] = isset( $_POST[$extra_field] ) ? sanitize_text_field( $_POST[$extra_field] ) : '';
+                    $payment_meta_wrapper->add_meta($payment->ID,$extra_field,isset( $_POST[$extra_field] ) ? sanitize_text_field( $_POST[$extra_field] ) : '');
                   }
             }
-            return $payment_meta;
+            $payment->save;
         }
 
         public function view_order_details( $payment_meta, $user_info ) {
@@ -451,7 +452,7 @@ if (!class_exists('Clvr_Fapi')){
         return $data;
     }
 
-    public function getInvoiceID($payment_id){
+    public function getInvoiceID($payment_id, $proforma=false){
         if (!$this->isInitialized()){
             return;
         }
@@ -461,7 +462,7 @@ if (!class_exists('Clvr_Fapi')){
             //return $this->getFapiClient()->getInvoices()->find($invoice_id);
             return $invoice_id;
         }
-        $data = $this->prepareDataForInvoice($payment_id);
+        $data = $this->prepareDataForInvoice($payment_id,$proforma);
         $response = $this->getFapiClient()->getInvoices()->create($data);
         add_post_meta( $payment_id, self::INVOICE_ID_META_KEY, $response['id'] );
         return $response['id'];
@@ -603,7 +604,7 @@ if (!class_exists('Clvr_Fapi')){
 
 
 
-    public function prepareDataForInvoice($payment_id){
+    public function prepareDataForInvoice($payment_id, $proforma = false){
         $payment_meta = edd_get_payment_meta( $payment_id );
         $items = $this->prepareItemsForInvoice($payment_id);
         $customer_id = $this->getFapiCustomer($payment_id);
@@ -617,7 +618,9 @@ if (!class_exists('Clvr_Fapi')){
             'total_vat' => $this->getCartTotalVat($payment_id),
             'vat_date' => $date->format('Y-m-d'),
             'variable_symbol' => $payment->number,
+            'proforma' => $proforma,
         ];
+    
         return $data;
 
     }
@@ -646,6 +649,18 @@ if (!class_exists('Clvr_Fapi')){
             'paid' => true
         ];
         return $this->getFapiClient()->getInvoices()->update($invoice_id,$data);
+    }
+
+    public function maybe_create_proforma($payment_id){
+        global $edd_options;
+		$payment = new EDD_Payment($payment_id);
+        $this->store_payment_meta($payment);
+        if (isset($edd_options['eddfapi_proforma']) && !empty($edd_options['eddfapi_proforma'])){
+			return $this->getInvoiceID($payment_id,true);
+		}else{
+			return false;
+		}
+
     }
 
     } //class

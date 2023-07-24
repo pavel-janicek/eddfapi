@@ -42,6 +42,13 @@ if (!class_exists('Clvr_Fapi_Settings')){
 					'type' => 'text',
 					'size' => 'regular'
 		    ),
+
+			array(
+				'id' => 'eddfapi_proforma',
+				'name' => 'Vystavovat proforma faktury',
+				'desc' => 'Faktury se budou vystavovat po každé objednávce jako proforma faktury',
+				'type' => 'checkbox'
+			  ),
 				
 			array(
 		      'id' => 'eddfapi_povinne_prijmeni',
